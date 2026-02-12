@@ -5,6 +5,7 @@ from app.schemas.user import UserCreate, UserOut, UserUpdate
 from app.services.user_service import create_user, list_users, get_user, update_user, delete_user
 from app.db.session import get_db
 from app.core.deps import get_current_user
+from app.models import UserSQLModel
 
 router = APIRouter(prefix="/users", tags=["users"])
 
@@ -18,6 +19,14 @@ def create_user_endpoint(payload: UserCreate, db: Session = Depends(get_db), cur
 @router.get("", response_model=list[UserOut])
 def list_users_endpoint(db: Session = Depends(get_db), current_user=Depends(get_current_user)) -> list[UserOut]:
     return list_users(db)
+
+
+@router.get("/md", response_model=list[UserSQLModel])
+def list_users_md(db: Session = Depends(get_db), current_user=Depends(get_current_user)) -> list[UserSQLModel]:
+    """Return users using `UserSQLModel` representation (service -> repository -> model)."""
+    users = list_users(db)
+    # convert SQLAlchemy User to SQLModel for response
+    return [UserSQLModel.from_orm(u) for u in users]
 
 
 @router.get("/{user_id}", response_model=UserOut)

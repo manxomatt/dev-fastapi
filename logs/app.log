@@ -12,3 +12,45 @@
 2026-02-10 18:46:26,843 INFO httpx: HTTP Request: DELETE http://testserver/users/2 "HTTP/1.1 204 No Content"
 2026-02-10 18:46:26,844 INFO app.request: GET /users/2 -> 404 (0.77ms)
 2026-02-10 18:46:26,844 INFO httpx: HTTP Request: GET http://testserver/users/2 "HTTP/1.1 404 Not Found"
+2026-02-11 22:00:54,381 INFO app.request: POST /auth/login -> 200 (6.05ms)
+2026-02-11 22:00:54,381 INFO httpx: HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-02-11 22:00:54,388 INFO app.request: POST /users -> 201 (6.62ms)
+2026-02-11 22:00:54,388 INFO httpx: HTTP Request: POST http://testserver/users "HTTP/1.1 201 Created"
+2026-02-11 22:00:54,390 INFO app.request: GET /users/2 -> 200 (1.00ms)
+2026-02-11 22:00:54,390 INFO httpx: HTTP Request: GET http://testserver/users/2 "HTTP/1.1 200 OK"
+2026-02-11 22:00:54,391 INFO app.request: GET /users -> 200 (0.95ms)
+2026-02-11 22:00:54,391 INFO httpx: HTTP Request: GET http://testserver/users "HTTP/1.1 200 OK"
+2026-02-11 22:00:54,393 INFO app.request: PUT /users/2 -> 200 (1.65ms)
+2026-02-11 22:00:54,393 INFO httpx: HTTP Request: PUT http://testserver/users/2 "HTTP/1.1 200 OK"
+2026-02-11 22:00:54,394 INFO app.request: DELETE /users/2 -> 204 (1.11ms)
+2026-02-11 22:00:54,395 INFO httpx: HTTP Request: DELETE http://testserver/users/2 "HTTP/1.1 204 No Content"
+2026-02-11 22:00:54,395 INFO app.request: GET /users/2 -> 404 (0.74ms)
+2026-02-11 22:00:54,396 INFO httpx: HTTP Request: GET http://testserver/users/2 "HTTP/1.1 404 Not Found"
+2026-02-11 22:03:07,342 INFO app.request: POST /auth/login -> 200 (5.19ms)
+2026-02-11 22:03:07,343 INFO httpx: HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-02-11 22:03:07,349 INFO app.request: POST /users -> 201 (6.26ms)
+2026-02-11 22:03:07,350 INFO httpx: HTTP Request: POST http://testserver/users "HTTP/1.1 201 Created"
+2026-02-11 22:03:07,351 INFO app.request: GET /users/2 -> 200 (1.07ms)
+2026-02-11 22:03:07,351 INFO httpx: HTTP Request: GET http://testserver/users/2 "HTTP/1.1 200 OK"
+2026-02-11 22:03:07,352 INFO app.request: GET /users -> 200 (0.98ms)
+2026-02-11 22:03:07,352 INFO httpx: HTTP Request: GET http://testserver/users "HTTP/1.1 200 OK"
+2026-02-11 22:03:07,354 INFO app.request: PUT /users/2 -> 200 (1.71ms)
+2026-02-11 22:03:07,355 INFO httpx: HTTP Request: PUT http://testserver/users/2 "HTTP/1.1 200 OK"
+2026-02-11 22:03:07,356 INFO app.request: DELETE /users/2 -> 204 (1.23ms)
+2026-02-11 22:03:07,356 INFO httpx: HTTP Request: DELETE http://testserver/users/2 "HTTP/1.1 204 No Content"
+2026-02-11 22:03:07,357 INFO app.request: GET /users/2 -> 404 (0.87ms)
+2026-02-11 22:03:07,357 INFO httpx: HTTP Request: GET http://testserver/users/2 "HTTP/1.1 404 Not Found"
+2026-02-11 22:06:36,184 INFO app.request: POST /auth/login -> 200 (5.23ms)
+2026-02-11 22:06:36,184 INFO httpx: HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-02-11 22:06:36,191 INFO app.request: POST /users -> 201 (6.42ms)
+2026-02-11 22:06:36,191 INFO httpx: HTTP Request: POST http://testserver/users "HTTP/1.1 201 Created"
+2026-02-11 22:06:36,193 INFO app.request: GET /users/2 -> 200 (0.99ms)
+2026-02-11 22:06:36,193 INFO httpx: HTTP Request: GET http://testserver/users/2 "HTTP/1.1 200 OK"
+2026-02-11 22:06:36,194 INFO app.request: GET /users -> 200 (1.01ms)
+2026-02-11 22:06:36,194 INFO httpx: HTTP Request: GET http://testserver/users "HTTP/1.1 200 OK"
+2026-02-11 22:06:36,196 INFO app.request: PUT /users/2 -> 200 (1.70ms)
+2026-02-11 22:06:36,196 INFO httpx: HTTP Request: PUT http://testserver/users/2 "HTTP/1.1 200 OK"
+2026-02-11 22:06:36,198 INFO app.request: DELETE /users/2 -> 204 (1.15ms)
+2026-02-11 22:06:36,198 INFO httpx: HTTP Request: DELETE http://testserver/users/2 "HTTP/1.1 204 No Content"
+2026-02-11 22:06:36,199 INFO app.request: GET /users/2 -> 404 (0.89ms)
+2026-02-11 22:06:36,199 INFO httpx: HTTP Request: GET http://testserver/users/2 "HTTP/1.1 404 Not Found"

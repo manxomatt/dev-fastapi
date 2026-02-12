@@ -1,8 +1,9 @@
 from typing import List, Optional
 from sqlalchemy.orm import Session
-from sqlalchemy import or_
-from app.models.user import User
 from passlib.context import CryptContext
+
+from app.models.user import User
+from app.repositories import user_repository
 
 
 pwd_context = CryptContext(schemes=["pbkdf2_sha256"], deprecated="auto")
@@ -18,45 +19,32 @@ def verify_password(raw: str, hashed: str) -> bool:
 
 def create_user(db: Session, username: str, email: str, password: str) -> User:
     pwd = _hash_password(password)
-    user = User(username=username, email=email, password_hash=pwd)
-    db.add(user)
-    db.commit()
-    db.refresh(user)
-    return user
+    return user_repository.create(db, username, email, pwd)
 
 
 def list_users(db: Session) -> List[User]:
-    return db.query(User).all()
+    return user_repository.list_all(db)
 
 
 def get_user(db: Session, user_id: int) -> Optional[User]:
-    return db.query(User).filter(User.id == user_id).first()
+    return user_repository.get_by_id(db, user_id)
 
 
 def find_user_by_username_or_email(db: Session, username_or_email: str) -> Optional[User]:
-    return db.query(User).filter((User.username == username_or_email) | (User.email == username_or_email)).first()
+    return user_repository.find_by_username_or_email(db, username_or_email)
 
 
 def update_user(db: Session, user_id: int, username: Optional[str] = None, email: Optional[str] = None, password: Optional[str] = None) -> Optional[User]:
     user = get_user(db, user_id)
     if not user:
         return None
-    if username:
-        user.username = username
-    if email:
-        user.email = email
-    if password:
-        user.password_hash = _hash_password(password)
-    db.add(user)
-    db.commit()
-    db.refresh(user)
-    return user
+    pwd_hash = _hash_password(password) if password else None
+    return user_repository.update(db, user, username=username, email=email, password_hash=pwd_hash)
 
 
 def delete_user(db: Session, user_id: int) -> bool:
     user = get_user(db, user_id)
     if not user:
         return False
-    db.delete(user)
-    db.commit()
+    user_repository.delete(db, user)
     return True
